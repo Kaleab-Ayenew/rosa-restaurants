@@ -1,38 +1,512 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Source+Code+Pro&family=Space+Grotesk&display=swap');
+
+/*
+font-family: 'Herr Von Muellerhoff', cursive;
+font-family: 'Source Code Pro', monospace;
+font-family: 'Space Grotesk', sans-serif;
+*/
+
+::-webkit-scrollbar{
+  height: 6px;              /* height of horizontal scrollbar ← You're missing this */
+  width: 6px;               /* width of vertical scrollbar */
+  background-color: none;
+}
+::-webkit-scrollbar-thumb{
+  width: 6px;
+  height: 6px;
+  background-color: rgb(196, 95, 0);
+  border-radius: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1{
+   font-family: 'Herr Von Muellerhoff', cursive;
+  font-size: 100px;
+  color: rgb(196, 95, 0);
+  font-weight: normal;
+  margin: 0;
+  line-height: 1em;
+  white-space: nowrap;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h2{
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: 9.4px;
+  white-space: nowrap;
+}
+
+p{
+  font-family: 'Space Grotesk', sans-serif;
+  color: balck;
+}
+
+header{
+  width: 100%;
+  height: 100px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 40px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+header > span.menu{
+  color: white;
+  font-size: 1.8rem;
+  display: none;
+}
+
+header .nav-list{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  min-width: 550px;
+}
+
+
+header .nav-list > a{
+  color: white;
+  text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.5s ease;
+}
+
+header .nav-list > a:hover{
+  color: rgb(196, 95, 0);
+}
+
+header .nav-list > a::after{
+  content: '';
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(196, 95, 0);
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: center;
+  border-radius: 1px;
+  transition: all 0.5s ease;
+}
+
+header .nav-list > a:hover::after{
+  transform: scale(1);
+}
+
+.header-canvas-window{
+  width: 100%;
+  height: 100vh;
+  border: 10px solid white;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  background-image: url(https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988534/header.jpg);
+  background-size: cover;
+  z-index: -1;
+  background-attachment: fixed;
+}
+
+.header-canvas-window > div{
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-canvas-window > div > span:nth-child(1){
+  font-family: 'Herr Von Muellerhoff', cursive;
+  font-size: 100px;
+  color: rgb(196, 95, 0);
+  margin-bottom: -65px;
+}
+
+.header-canvas-window > div > span:nth-child(2){
+  font-family: 'Source Code Pro', monospace;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 10px;
+}
+
+.header-canvas-window > div > span:nth-child(3){
+  font-family: 'Source Code Pro', monospace;
+  font-size: 15px;
+  font-weight: bold;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header-canvas-window > div > span:nth-child(4){
+  font-family: 'Source Code Pro', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  margin-top: 15px;
+  background: white;
+  width: 100px;
+  height: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.header-canvas-window > div > span:nth-child(4):hover{
+  background-color: rgb(196, 95, 0);
+  cursor: pointer;
+}
+.content-section{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  padding: 0 30px;
+  min-height: 70vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-box{
+  display: block;
+  text-align: center;
+  max-width: 50%;
+  min-width: 350px;
+  padding: 20px;
+  margin: 35px 0;
+}
+
+.content-box > h2{
+  margin-top: -40px;
+}
+
+.content-box > i{
+  transform: scale(1.5);
+  color: gray;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.content-box > p{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.content-box > a{
+  font-family: 'Space Grotesk', sans-serif;
+  color:  rgb(196, 95, 0);
+  font-weight: bold;
+  font-size: 17px;
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 3px;
+}
+
+.content-box > a::after{
+  content: '';
+  background: rgb(196, 95, 0);
+  height: 2px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  
+}
+
+.content-box-img{
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  max-width: 570px;
+  max-height: 570px;
+  justify-content: space-between;
+  margin: 35px 0;
+}
+
+.content-box-img > img{
+  max-width: 48%;
+  min-height: 300px;
+}
+
+.content-box-img-grid{
+  display: grid;
+  column-gap: 25px;
+  grid-template-columns: 250px 250px;
+/*   max-width: 570px;
+  max-height: 570px; */
+}
+
+.content-box-img-grid > span{
+  display: grid;
+  row-gap: 25px;
+}
+.content-box-img-grid > span > img{
+  width: 100%;
+}
+
+.canvas-window{
+  width: 100%;
+  height: 350px;
+  border: 10px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#r{
+  background-image: url(https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988529/three-col-1.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#p{
+  background-image: url(https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988533/frontpage-menu.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.canvas-window > h2{
+  color: white;
+  margin-top: -40px;
+}
+
+footer{
+  padding-top: 35px;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer > .info-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+}
+
+footer > .info-box > h2{
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+
+footer > .info-box > p{
+  text-align: center;
+}
+
+footer > .info-box > i{
+  margin: 20px 0;
+  color: rgb(196, 95, 0);
+}
+
+footer > .contact-box{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  margin-top: 50px;
+}
+
+footer .follow, footer .news{
+  
+}
+
+
+footer .follow > h2, footer .news > h2{
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+footer .follow > span{
+  display: flex;
+  width: 200px;
+  margin-top: 25px;
+  justify-content: space-between;
+  font-size: 1.5em;
+}
+
+footer .news > span{
+  position: relative;
+  display: block;
+  width: 250px;
+  height: 35px;
+  margin-top: 20px;
+}
+
+footer .news > span > input{
+  width: 250px;
+  height: 35px;
+  padding-left: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: white;
+}
+
+footer .news > span > i{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: black;
+  font-size: 25px;
+}
+
+footer .other-box{
+  background-color: rgb(33, 33, 33);
+  height: 130px;
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer .other-box > div{
+  width: 70%;
+  min-width: 700px;
+  color: rgb(105, 104, 104);
+  font-family: 'Space Grotesk', sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .other-box > div:nth-child(2){
+  width: 30%;
+  min-width: 500px;
+  margin-bottom: 20px;
+}
+
+footer .other-box > div:nth-child(2) > *:hover{
+  cursor: pointer;
+  color: rgb(196, 95, 0);
+  transition: all 0.4s;
+}
+
+@media screen and (max-width: 930px){
+  header .nav-list{
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  header .logo-img{
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
+  header span.menu{
+    display: inline-block;
+  }
+  
+  .content-section{
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  
+  .content-section.sec-rev{
+    flex-direction: column-reverse;
+  }
+  .content-box{
+    width: 100%;
+  }
+  footer .other-box > div{
+    min-width: unset;
+  }
+  footer .other-box > div:nth-child(1){
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 0 20px;
+  }
+  footer .other-box > div:nth-child(2){
+    min-width: unset;
+    width: 100%;
+    padding: 0 20px;
+  }
+  .content-box-img-grid{
+    display: flex;
+  }
+  footer > .info-box{
+    width: 100%;
+  }
+  footer > .contact-box{
+    flex-direction: column;
+  }
+  footer > .contact-box > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+  }
+  
+  
+}
+
+@media screen and (max-width: 530px){
+  footer .other-box{
+    padding: 1em 0;
+    height: unset;
+  }
+  
+  footer > .other-box > div{
+    flex-direction: column;
+  }
+  footer > .other-box > div >span{
+    margin: 5px 0;
+  }
+  footer > .other-box *, footer > .other-box *::before, footer > .other-box *::after{
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (max-width: 450px){
+  .content-box-img > img{
+    min-height: unset;
+  }
+  .content-section .content-box h1{
+    font-size: 25vw;
+  } 
+  .content-section .content-box h2{
+    font-size: 12vw;
+  }
+  .canvas-window h1{
+    font-size: 25vw;
+  }
+  .canvas-window h2{
+    font-size: 12vw;
+  }
+  .header-canvas-window div span:nth-child(1){
+    font-size: 30vw;
+    margin-bottom: -50px;
+  }
+  .header-canvas-window div span:nth-child(2){
+    font-size: 12vw;
+  }
+  
+  footer .other-box{
+    padding: 1em 0;
+    height: unset;
+  }
+  
+  footer > .other-box > div{
+    flex-direction: column;
+  }
+  footer > .other-box > div >span{
+    margin: 5px 0;
+  }
+  footer > .other-box *, footer > .other-box *::before, footer > .other-box *::after{
+    font-size: 4vw;
+  }
+  
 }
