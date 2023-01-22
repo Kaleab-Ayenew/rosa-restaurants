@@ -29,7 +29,7 @@ function App() {
       <div class="header-canvas-window">
         <div>
           <span>Welcome</span>
-          <span>THE ROSA</span>
+          <span>THE KALISH</span>
           <span>Ready to be Opened</span>
           <span>Explore</span>
         </div>
