@@ -169,7 +169,7 @@ header.sticky span.menu > i {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988534/header.jpg);
+  background-image: url(./images/background/header.jpg);
   background-size: cover;
   z-index: -1;
   background-attachment: fixed;
@@ -322,13 +322,13 @@ header.sticky span.menu > i {
 }
 
 #r {
-  background-image: url(https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988529/three-col-1.jpg);
+  background-image: url(./images/background/back-2.jpg);
   background-attachment: fixed;
   background-size: cover;
 }
 
 #p {
-  background-image: url(https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988533/frontpage-menu.jpg);
+  background-image: url(./images/background/back-3.jpg);
   background-attachment: fixed;
   background-size: cover;
 }

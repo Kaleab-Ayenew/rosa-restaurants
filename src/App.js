@@ -87,14 +87,8 @@ function App() {
           <a href="#">About Us</a>
         </div>
         <div class="content-box-img">
-          <img
-            src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988527/vertical-photo-1.jpg"
-            alt="box-img"
-          />
-          <img
-            src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988532/vertical-photo-2.jpg"
-            alt="box-img"
-          />
+          <img src={require("./images/vertical-photo-1.jpg")} alt="box-img" />
+          <img src={require("./images/vertical-photo-2.jpg")} alt="box-img" />
         </div>
       </div>
 
@@ -106,26 +100,14 @@ function App() {
       <div class="content-section sec-rev">
         <div class="content-box-img-grid">
           <span>
-            <img
-              src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988517/big-menu-thumb-1.jpg"
-              alt="box-img"
-            />
-            <img
-              src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988526/big-menu-thumb-2.jpg"
-              alt="box-img"
-            />
+            <img src={require("./images/big-menu-thumb-1.jpg")} alt="box-img" />
+            <img src={require("./images/big-menu-thumb-2.jpg")} alt="box-img" />
           </span>
 
           <span>
-            <img
-              src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988525/big-menu-thumb-4.jpg"
-              alt="box-img"
-            />
+            <img src={require("./images/big-menu-thumb-4.jpg")} alt="box-img" />
 
-            <img
-              src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988524/big-menu-thumb-6.jpg"
-              alt="box-img"
-            />
+            <img src={require("./images/big-menu-thumb-6.jpg")} alt="box-img" />
           </span>
         </div>
 
@@ -162,14 +144,8 @@ function App() {
           <a href="#">Make a Reservation</a>
         </div>
         <div class="content-box-img">
-          <img
-            src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988518/bacon-1.jpg"
-            alt="box-img"
-          />
-          <img
-            src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988518/bacon-2.jpg"
-            alt="box-img"
-          />
+          <img src={require("./images/bacon-1.jpg")} alt="box-img" />
+          <img src={require("./images/bacon-2.jpg")} alt="box-img" />
         </div>
       </div>
 
@@ -218,7 +194,7 @@ function App() {
 
           <div>
             <span>PERMISSIONS AND COPYRIGHT</span>
-            <span>CONTACT THE TEAM</span>
+            <span>CONTACT THE KAL</span>
           </div>
         </div>
       </footer>
