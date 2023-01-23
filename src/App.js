@@ -1,16 +1,25 @@
+import React from "react";
 import "./App.css";
 
 function App() {
+  const headerRef = React.useRef();
+  // const [isSticky, setIsSticky] = React.useState();
+  const [menuExpanded, setMenuExpanded] = React.useState(false);
+  window.onscroll = () => {
+    if (window.scrollY > 200) {
+      headerRef.current.classList.add("sticky");
+    } else {
+      headerRef.current.classList.remove("sticky");
+    }
+  };
   return (
     <div>
-      <header>
-        <span class="logo-img">
-          <img
-            src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988515/logo-rosa-white.png"
-            alt="logo"
-          />
+      <header ref={headerRef}>
+        <span className="logo-img">
+          <img src={require("./images/new-logo.png")} alt="logo" />
         </span>
-        <div class="nav-list">
+        <div class={`nav-list ${menuExpanded ? "expand" : ""}`}>
+          <span>Menu</span>
           <a href="#">Home</a>
           <a href="#">Reservations</a>
           <a href="#">Menu</a>
@@ -20,16 +29,37 @@ function App() {
           <a href="#">Contact</a>
         </div>
         <span class="menu">
-          <i class="fa-solid fa-bars"></i>
+          {!menuExpanded ? (
+            <i
+              onClick={() => {
+                setMenuExpanded(true);
+              }}
+              className="fa-solid fa-bars"
+            ></i>
+          ) : (
+            <i
+              onClick={() => {
+                setMenuExpanded(false);
+              }}
+              className="fa-solid fa-xmark"
+            ></i>
+          )}
         </span>
       </header>
 
       <div class="background-canvas"></div>
 
-      <div class="header-canvas-window">
+      <div
+        // style={{
+        //   backgroundImage: `url(${require("./images/background/header.jpg")})`,
+        // }}
+        class="header-canvas-window"
+      >
         <div>
           <span>Welcome</span>
-          <span>THE KALISH</span>
+          <span>
+            <i>`KAL`</i>
+          </span>
           <span>Ready to be Opened</span>
           <span>Explore</span>
         </div>
@@ -41,10 +71,9 @@ function App() {
           <h2>Our Story</h2>
           <i class="fas fa-asterisk"></i>
           <p>
-            Rosa is a restaurant, bar and coffee roastery located on a busy
-            corner site in Farringdon{"’"}s Exmouth Market. With glazed frontage
-            on two sides of the building, overlooking the market and a bustling
-            London intersection.
+            KAL is an Italian restaurant located in the heart of downtown San
+            Francisco. We specialize in classic Italian dishes, from traditional
+            pizzas to house-made pastas prepared with the freshest ingredients.
           </p>
           <a href="#">About Us</a>
         </div>
@@ -96,10 +125,9 @@ function App() {
           <h2>Menu</h2>
           <i class="fas fa-asterisk"></i>
           <p>
-            For those with pure food indulgence in mind, come next door and sate
-            your desires with our ever changing internationally and seasonally
-            inspired small plates. We love food, lots of different food, just
-            like you.
+            Our menu features an array of house specialties and daily specials
+            created by our talented chefs. The relaxed atmosphere of our cozy
+            dining room is ideal for casual dinners and special occasions alike.
           </p>
           <a href="#">View The Full Menu</a>
         </div>
@@ -116,9 +144,11 @@ function App() {
           <h2>Delight</h2>
           <i class="fas fa-asterisk"></i>
           <p>
-            We promise an intimate and relaxed dining experience that offers
-            something different to local and foreign patrons and ensures you
-            enjoy a memorable food experience every time.
+            Our professional wait staff is always available to offer
+            recommendations of wine pairings that highlight each dish's unique
+            flavor. At KAL, we bring together the finest food and service for a
+            truly memorable experience. Let your taste buds travel Italy without
+            having to leave San Francisco!
           </p>
           <a href="#">Make a Reservation</a>
         </div>
@@ -136,13 +166,12 @@ function App() {
 
       <footer>
         <div class="info-box">
-          <h2>About Rosa</h2>
+          <h2>About KAL</h2>
           <i class="fas fa-asterisk"></i>
           <p>
-            ROSA is an enchanting and easy-to-use parallax Restaurant WordPress
-            theme that allows you to tell your story in a dynamic, narrative and
-            enjoyable way, making it perfect for restaurants, bakeries, bars or
-            coffee shops.
+            KAL is an Italian restaurant located in the heart of downtown San
+            Francisco. We specialize in classic Italian dishes, from traditional
+            pizzas to house-made pastas prepared with the freshest ingredients.
           </p>
         </div>
 
@@ -167,10 +196,15 @@ function App() {
         </div>
         <div class="other-box">
           <div>
-            <span>© ROSA 2017</span>
-            <span>13 Hanway Square, London</span>
-            <span>Tel: 71494563</span>
-            <span>Handcrafted with love by Pixelgrade Team</span>
+            <span>© KAL 2023</span>
+            <span>Addis Ababa, Ethiopia</span>
+            <span>Tel: +123-456-7890</span>
+            <span>
+              Handcrafted with love by{" "}
+              <a style={{ color: "unset" }} href="https://kal-dev.com/">
+                Kaleab Ayenew
+              </a>
+            </span>
           </div>
 
           <div>
