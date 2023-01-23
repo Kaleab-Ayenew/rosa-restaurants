@@ -1,10 +1,12 @@
 import React from "react";
 import "./App.css";
+import Loader from "./Loader";
 
 function App() {
   const headerRef = React.useRef();
   // const [isSticky, setIsSticky] = React.useState();
   const [menuExpanded, setMenuExpanded] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
   window.onscroll = () => {
     if (window.scrollY > 200) {
       headerRef.current.classList.add("sticky");
@@ -12,8 +14,15 @@ function App() {
       headerRef.current.classList.remove("sticky");
     }
   };
+  React.useEffect(() => {
+    console.log(loading);
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, []);
   return (
     <div>
+      {loading ? <Loader /> : null}
       <header ref={headerRef}>
         <span className="logo-img">
           <img src={require("./images/new-logo.png")} alt="logo" />
